@@ -1,0 +1,293 @@
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+  }
+
+  ::selection {
+    background-color: #7c3aed;
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+    border-left: 2px solid #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border: 2px solid #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5b21b6;
+  }
+}
+
+/* ── Components ───────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Brutalist card */
+  .glass-card {
+    @apply bg-black border-2 border-white;
+    box-shadow: 4px 4px 0px 0px #7c3aed;
+    transition: all 0.2s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 8px 8px 0px 0px #7c3aed;
+    transform: translate(-4px, -4px);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply bg-white text-black font-bold px-6 py-3 border-2 border-white;
+    box-shadow: 4px 4px 0px 0px #7c3aed;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 0px 0px #7c3aed;
+    transform: translate(4px, 4px);
+  }
+
+  /* Secondary/outline button */
+  .btn-secondary {
+    @apply bg-sage text-white font-bold px-6 py-3 border-2 border-white;
+    box-shadow: 4px 4px 0px 0px #7c3aed;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 0px 0px 0px 0px #7c3aed;
+    transform: translate(4px, 4px);
+  }
+
+  /* Insight card severities */
+  .insight-success {
+    @apply bg-brand-gray border-l-4 border-l-[#4ade80] border-t border-r border-b border-white/10;
+  }
+
+  .insight-warning {
+    @apply bg-brand-gray border-l-4 border-l-[#facc15] border-t border-r border-b border-white/10;
+  }
+
+  .insight-info {
+    @apply bg-brand-gray border-l-4 border-l-[#3b82f6] border-t border-r border-b border-white/10;
+  }
+
+  /* Stat badge */
+  .stat-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold bg-brand-gray text-white border border-white/10 rounded-md;
+  }
+
+  /* Table styles */
+  .data-table {
+    @apply w-full text-sm border border-white/10 rounded-xl overflow-hidden;
+    border-collapse: collapse;
+  }
+
+  .data-table th {
+    @apply text-white font-bold text-left px-4 py-3 bg-brand-gray border-b border-white/10;
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .data-table td {
+    @apply px-4 py-2.5 text-white/80 border-b border-white/10 bg-black;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .data-table tr:hover td {
+    background: #1A1A1A; /* Sleek hover */
+  }
+
+  /* Removed Loading shimmer */
+  .shimmer {
+    background: #c4b5fd;
+  }
+
+  /* Removed Gradient text */
+  .gradient-text {
+    color: #3b82f6;
+  }
+
+  /* Removed Animated border */
+  .glow-border {
+    border: 2px solid #000000;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-2xl font-heading font-bold text-white mb-1;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-white/60 font-medium;
+  }
+}
+
+/* ── Upload dropzone override ─────────────────────────────────────────────── */
+.dropzone-active {
+  background: #3b0764 !important;
+  box-shadow: inset 4px 4px 0px 0px #7c3aed !important;
+  transform: translate(2px, 2px);
+  border-color: #ffffff !important;
+}
+
+/* ── Recharts overrides ───────────────────────────────────────────────────── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  box-shadow: 4px 4px 0px 0px #7c3aed !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #ffffff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.recharts-legend-item-text {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* ── Custom Animations & Keyframes ───────────────────────────────────────── */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes progressMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 4s linear infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progressMove 2.5s ease-in-out infinite;
+}

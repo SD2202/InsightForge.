@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a single axios instance for the API
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8000/api', // FastAPI backend URL
+  baseURL: 'https://insightforge-4mbq.onrender.com/api', // FastAPI backend URL
 });
 
 // Configure interceptor to inject Authorization header if token exists
